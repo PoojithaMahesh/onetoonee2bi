@@ -7,15 +7,15 @@ import onetoonebidrectione2.dto.Person;
 public class PersonController {
 public static void main(String[] args) {
 	Person person=new Person();
-	person.setName("poojithaJM");
-	person.setAddress("Bangalore");
-	
-	AadharCard aadharCard=new AadharCard();
-	
-	aadharCard.setAge(18);
-	aadharCard.setName("poojithaJm");
-	aadharCard.setPerson(person);
-	
+//	person.setName("poojithaJM");
+//	person.setAddress("Bangalore");
+//	
+//	AadharCard aadharCard=new AadharCard();
+//	
+//	aadharCard.setAge(18);
+//	aadharCard.setName("poojithaJm");
+//	aadharCard.setPerson(person);
+//	
 //
 //	person.setAadharCard(aadharCard);
 	
@@ -23,6 +23,6 @@ public static void main(String[] args) {
 //	personDao.savePerson(person);
 ////	personDao.updatePerson(1, person);
 //	personDao.findPersonById(1);
-	personDao.deletePersonById(1);
+   personDao.deleteAdharCardById(1);
 }
 }

@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import onetoonebidrectione2.dto.AadharCard;
 import onetoonebidrectione2.dto.Person;
 
 public class PersonDao {
@@ -36,7 +37,7 @@ public class PersonDao {
 	public void findPersonById(int id) {
 		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("vinod");
 		EntityManager entityManager=entityManagerFactory.createEntityManager();
-		Person dbPerson=entityManager.find(Person.class, id);
+		AadharCard dbPerson=entityManager.find(AadharCard.class, id);
 		if(dbPerson!=null) {
 			System.out.println(dbPerson);
 		}else {
@@ -56,7 +57,21 @@ public class PersonDao {
 			System.out.println("id is not present");
 		}
 	}
-	
+	public void deleteAdharCardById(int id) {
+		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("vinod");
+		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		AadharCard dbAadharCard=entityManager.find(AadharCard.class, id);
+		if(dbAadharCard!=null) {
+			EntityTransaction entityTransaction=entityManager.getTransaction();
+			entityTransaction.begin();
+			Person person=dbAadharCard.getPerson();
+			person.setAadharCard(null);
+			entityManager.remove(dbAadharCard);
+			entityTransaction.commit();
+		}else {
+			System.out.println("id is not present");
+		}
+	}
 	
 	
 }

@@ -14,7 +14,7 @@ public class AadharCard {
 	private int id;
 	private String name;
 	private int age;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "aadharCard")
 	private Person person;
 	public int getId() {
 		return id;
@@ -42,7 +42,7 @@ public class AadharCard {
 	}
 	@Override
 	public String toString() {
-		return "AadharCard [id=" + id + ", name=" + name + ", age=" + age + "]";
+		return "AadharCard [id=" + id + ", name=" + name + ", age=" + age + ", person=" + person + "]";
 	}
 	
 }

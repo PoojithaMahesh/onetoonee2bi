@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,8 +15,8 @@ public class Person {
 	private int id;
 	private String name;
 	private String address;
-	
-	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn
+	@OneToOne
 	private AadharCard aadharCard;
 
 	public int getId() {
@@ -52,7 +53,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", address=" + address + ", aadharCard=" + aadharCard + "]";
+		return "Person [id=" + id + ", name=" + name + ", address=" + address +  "]";
 	}
 	
 	
